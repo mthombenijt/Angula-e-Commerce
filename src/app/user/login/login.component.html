@@ -1,0 +1,58 @@
+
+    <div  style="margin-left: 40px; margin-top: 10px">
+      <img src="./assets/images/eco.png" style="height: 70px;">
+
+      <a routerLink='/productdisplay' href="#" style="background-color: #B9154A;
+      padding: 9px 60px;font-size: 12px;font-family: pnpFontBook, CachetStd-Book;
+      vertical-align: middle;margin-left: 1100px;margin-bottom: 100px; height: 30px;color: white;
+      "><img data-dojo-attach-point="arrowPngImg"  src="./assets/images/Arrow.png" style="height: 15px;margin-top: 60px;">GO TO THE ONLINE SHOP</a>
+      
+         
+    </div>
+    <hr>
+    
+    <div style="color: #a9a9a9;font-family: 'CachetStd-large';text-align: center;
+                margin-top: 100px;margin-right: 20px;font-size: xx-large">
+                Welcome to E-commerce Online</div>
+
+   
+   
+
+<div class="form-group" style="box-sizing: border-box;display: block;
+color: #26282a;box-shadow: 0 2px 4px 0 rgba(181,181,181,.7);
+border-top: 1px solid #f1f1f5;width: 360px;right: 200px;
+z-index: 1;font-size: 14px;direction: ltr;
+-webkit-font-smoothing: antialiased;padding: 0 5px;margin-right: 1px;
+margin-right: 350px;margin-top: 20px; position: absolute;-webkit-tap-highlight-color: transparent;
+font-family: 'Helvetica Neue',Helvetica,Arial;font-weight: 100;line-height: 1.6
+;text-transform: uppercase;
+min-height: 200px;width: 500px;height: 6vh;background: #fff"> 
+<form [formGroup]="loginForm" (ngSubmit)="Login()" >
+  
+  <div class="form-group" style="margin-top: 20px">
+      
+    <div class="input-group mb-3">
+        <label for="FormControlUserName" style="color: black;font-size: small;margin-right: 10px" ><b>User Name*:</b></label>
+        <div class="input-group-prepend;input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">@</span>
+        </div>
+        
+        <input type="text" formControlName="UserName" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    
+    <div class="input-group mb-1">
+        <label for="FormControlUserName" style="color: black;font-size: small;margin-right: 15px" ><b>Password*:</b></label>
+        <div class="input-group-prepend;input-group mb-6">
+          <span class="input-group-text" id="basic-addon1">*</span>
+        </div>
+        <input type="password" formControlName="Password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+  </div>
+  <button type="button" style="margin-left: 39%;" [disabled]="!loginForm.valid" class="btn btn-outline-success" (click)="Login()"><b>Login</b></button>
+  <div class="modal-footer">
+    <p *ngFor="let alert of alerts">
+      <ngb-alert style="width: 758px;" [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
+    </p>
+  </div>
+</form>
+</div>

@@ -1,0 +1,33 @@
+
+<div class="animated fadeInDown" id="navbar" style="box-sizing: border-box;display: block;box-shadow: 0 10px 10px 0 rgba(181,181,181,.7)" >
+<nav class="navbar navbar-expand-lg" style=" list-style-type: none;height: 40px;background-color: hsl(0, 85%, 38%);">
+
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" style="padding-left: 900px; float: right;" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+   <div style=" padding-left: 500px;">
+      <li class="nav-item active" *ngIf="!isLoggedIn">
+        <a class="nav-link navbar-text"  routerLink='/login'>Login</a>|
+        <a class="nav-link navbar-text"   routerLink='/signup'>Sign Up</a>
+      </li>
+    </div>
+    
+        <!--<li class="nav-item active">
+          <a routerLink='/admin' class="nav-link" href="#"><b>Admin</b></a>
+        </li>-->
+    </ul>
+
+  </div>
+</nav>
+<form class="form-inline my-0 my-lg-0" style="margin-left: 20px">
+    <a class="navbar-brand" routerLink='/productdisplay'>
+     <img src="./assets/images/eco.png" style="height: 80px;float: left"></a>
+      <input class="form-control mr-lg-2" style="width: 400px;"  type="search" placeholder="Search for product, brand and more" aria-label="Search">
+     
+</form>
+<router-outlet></router-outlet>
+</div>

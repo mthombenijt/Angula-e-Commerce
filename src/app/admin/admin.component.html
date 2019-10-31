@@ -1,0 +1,158 @@
+  <app-userheader></app-userheader>
+          <div class="row" style="margin-top: 10px">
+              <div class="col-3">
+                 <app-navbar></app-navbar>
+
+              </div>
+              <div class="col-9" style="height: 85vh; box-sizing: border-box;display: block;
+              color: #26282a;box-shadow: 0 2px 4px 0 rgba(181,181,181,.7);
+              border-top: 1px solid #f1f1f5;right: 10px;min-height: 20px;
+              z-index: 1;font-size: 14px;direction: ltr;-webkit-font-smoothing: antialiased;position: absolute;
+              -webkit-tap-highlight-color: transparent;font-family: 'Helvetica Neue',Helvetica,Arial;font-weight: 100;line-height: 1.6
+              ;text-transform: uppercase;
+              min-height: 500px;">
+            
+              <form [formGroup]="productForm" >
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-2">
+                          <label for="FormControlName" style="color: lightseagreen;font-size: medium;" ><b>Seller Name-Id*:</b></label>
+                        </div>
+                        <div class="col-md-6">
+                          {{sellerName}} -{{sellerId}}
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                          <div class="col-md-2">
+                            <label for="FormControlName" style="color: lightseagreen;font-size: medium;" ><b>Billing Address*:</b></label>
+                          </div>
+                          <div class="col-md-6">
+                              <input type="text" formControlName="Address" placeholder="Enter Billing Address" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                          </div>
+                          <div class="col-md-4">
+                          </div>
+                        </div>
+                        <br>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label for="FormControlName" style="color: lightseagreen;font-size: medium;" ><b>Product Name*:</b></label>
+                    </div>
+                    <div class="col-md-6">
+                      <input type="text" formControlName="Name" placeholder="Enter Product Name" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="col-md-4">
+                        
+                      <span style="font-weight: bold;color: red;" *ngIf="!productForm.controls['Name'].valid&&productForm.controls['Name'].dirty">
+                        <span *ngIf="productForm.controls.Name.errors.required">Product Name is Required.</span>
+                        <span *ngIf="productForm.controls.Name.errors.minlength">Product name minimum should be length of 3.</span>
+                        <span *ngIf="productForm.controls.Name.errors.maxlength">Product name maximum should be length of 50.</span>
+                      </span>
+                     
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label for="FormControlDescription" style="color: lightseagreen;font-size: medium;" ><b>Description*:</b></label>
+                    </div>
+                    <div class="col-md-6">
+                      <input type="text" formControlName="Description" placeholder="Description" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-weight: bold;color: red;"  *ngIf="!productForm.controls['Description'].valid&&productForm.controls['Description'].dirty">
+                            <span *ngIf="productForm.controls.Description.errors.required">Description is Required.</span>
+                            <span *ngIf="productForm.controls.Description.errors.minlength">Description minimum should be length of 3.</span>
+                            <span *ngIf="productForm.controls.Description.errors.maxlength">Description maximum should be length of 50.</span>
+                          </span>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label for="FormControlPrice" style="color: lightseagreen;font-size: medium;" ><b>Per Unit Price*:</b></label>
+                    </div>
+                    <div class="col-md-6">
+                      <input type="number" formControlName="Price" placeholder="Price" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-weight: bold;color: red;" *ngIf="!productForm.controls['Price'].valid&&productForm.controls['Price'].dirty">
+                            <span *ngIf="productForm.controls.Price.errors.required">Price is Required.</span>
+                            <span *ngIf="productForm.controls.Price.errors.Price">Price is not in correct pattern.</span>
+                          </span>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label for="FormControlCategory" style="color: lightseagreen;font-size: medium;" ><b>Category*:</b></label>
+                    </div>
+                    <div class="col-md-6">
+                      <select  class="form-control"  formControlName="Category" id="exampleFormControlSelect2">
+                        <option [ngValue]="undefined">Select Category</option>
+                        <option>Food Items</option>
+                        <option>Beverages</option>
+                        <option>HouseHold</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-weight: bold;color: red;" *ngIf="!productForm.controls['Category'].valid&&productForm.controls['Category'].dirty&&productForm.controls['Category'].touched">
+                            <span *ngIf="productForm.controls.Category.errors.required">Category is Required.</span>
+                          </span>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label for="FormControlQuantity" style="color: lightseagreen;font-size: medium;" ><b>Available Quantity:</b></label>
+                    </div>
+                    <div class="col-md-6">
+                      <input type="number" formControlName="Quantity" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-weight: bold;color: red;" *ngIf="!productForm.controls['Quantity'].valid&&productForm.controls['Quantity'].dirty">
+                            <span *ngIf="productForm.controls.Quantity.errors.required">Quantity is Required.</span>
+                          </span>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label for="FormControlQuantity" style="color: lightseagreen;font-size: medium;" ><b>Product Image *:</b></label>
+                    </div>
+                    <div class="col-md-6">
+                      <input type="file" name="image" accept="image/*" (change)="handleImageFile($event.target.files)" formControlName="image" class="form-control-file" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-weight: bold;color: red;" *ngIf="!productForm.controls['image'].valid&&productForm.controls['image'].dirty">
+                            <span *ngIf="productForm.controls.image.errors.required">image is Required.</span>
+                          </span>
+                    </div>
+                  </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-2">
+                      <label for="FormControlConditions" style="color: lightseagreen;font-size: medium;" ><b>T & C *:</b></label>
+                    </div>
+                    <div class="col-md-6">
+                      <!-- <input type="textarea" formControlName="Conditions" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"> -->
+                      <textarea  formControlName="Conditions"  class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class="col-md-4">
+                        <span style="font-weight: bold;color: red;" *ngIf="!productForm.controls['Conditions'].valid&&productForm.controls['Conditions'].dirty">
+                            <span *ngIf="productForm.controls.Conditions.errors.required">Conditions is Required.</span>
+                          </span>
+                    </div>
+                  </div>
+                  <br>
+                
+                </div>
+                <button type="button" style="margin-left: 39%;" [disabled]="!productForm.valid" class="btn btn-outline-success" (click)="OnSaveProduct(productForm.value)"><b>Save</b></button>
+              </form>
+                    <p *ngFor="let alert of alerts">
+                      <ngb-alert style="width: 758px;" [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
+                    </p>
+              </div>
+            </div>

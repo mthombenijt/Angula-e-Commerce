@@ -1,0 +1,60 @@
+<section class="web_homePage" (scroll)="onWindowScroll($event);"> 
+<app-userheader></app-userheader>
+
+<div class="row" style="margin-top: 10px">
+    <div class="col-3">
+       <app-navbar></app-navbar>
+
+    </div>
+    <div class="col-9" style="height: 200vh; box-sizing: border-box;display: block;
+    color: #26282a;box-shadow: 0 2px 4px 0 rgba(181,181,181,.7);
+    border-top: 1px solid #f1f1f5;right: 10px;min-height: 20px;
+    z-index: 1;font-size: 14px;direction: ltr;-webkit-font-smoothing: antialiased;position: absolute;
+    -webkit-tap-highlight-color: transparent;font-family: 'Helvetica Neue',Helvetica,Arial;font-weight: 100;line-height: 1.6
+    ;text-transform: uppercase;
+    min-height: 2000px;">
+       
+            <p *ngFor="let alert of alerts">
+              <ngb-alert style="width: 400px;" [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
+            </p>
+             
+                  <td class="col-md-6"></td>
+                 
+                   <table class="table table-bordered" >
+                          <thead class="thead-light">
+                              <tr>
+                                <!--<th class="hidden">Id</th>-->
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Description</th>
+                                <th>Quantity</th>
+                                <th>Category</th>
+                              </tr>
+                              </thead>
+                      
+                      <tbody *ngFor="let cat of allProducts" >
+                      <tr *ngFor="let prod of cat.Products">
+                          <!--<td class="hidden"></td>-->
+                          <td>
+                              <img src="data:image/png;base64,{{prod.ImageFile}}" width="130px;" height="100px;"/>
+                           </td>
+                       
+                        <td>{{prod.Name}}</td>
+                        <td>R{{prod.UnitPrice}}</td>
+                        <td>{{prod.Description}}</td>
+                        <td>{{prod.Quantity}}</td>
+                        <td>{{cat.Category}}</td>
+                        
+                        <td><a class="btn text-primary" (click)="editProduct(prod)"><i class="fa fa-pencil-square-o"></i></a></td>
+                        <td><a class="btn text-danger" (click)="deleteProduct(prod)"><i class="fa fa-trash-o"></i></a></td>
+                       </tr>
+                      </tbody>
+                    </table>
+   
+                   </div>
+              
+   </div>
+  </section>  
+
+      

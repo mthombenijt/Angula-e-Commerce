@@ -1,0 +1,51 @@
+<section class="web_homePage" (scroll)="onWindowScroll($event);"> 
+<app-header></app-header>
+
+<div class="row" style="margin-top: 10px">
+    
+  <div class="col-md-1">
+     
+  </div>
+  <div class="col-md-10">
+     <div id="collapseExample" [ngbCollapse]="false">
+  <div class="card">
+    <div class="card-body">
+      <p *ngFor="let alert of alerts">
+        <ngb-alert style="width: 400px;" [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
+      </p>
+        <div *ngFor="let cat of allProducts" >
+           <h3 class="modal-header" style="color: cornflowerblue" >{{cat.Category}}</h3>
+
+                 <table class="table table-bordered table-responsive " style="display: inline;margin-left: 5px;" *ngFor="let prod of cat.Products">
+               <tr>
+                 <td>
+                    <img src="data:image/png;base64,{{prod.ImageFile}}" width="150px;" height="230px;"/>
+                 </td>
+               </tr>
+               <tr>
+                 <td>{{prod.Name}}</td>
+               </tr>
+               <tr>
+                 <td>Price:{{prod.UnitPrice}}</td>
+               </tr>
+               <tr>
+                  <td>{{prod.Description}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button"   class="btn btn-outline-success" (click)="OnAddCart(prod)"><b>Add to cart</b></button>
+                    </td>
+                  </tr>
+             </table>
+        </div>
+</div>
+  </div>
+    <div class="col-md-1">
+    
+      </div>
+</div>
+</div>
+
+</div>
+</section>  
+

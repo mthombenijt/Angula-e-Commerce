@@ -1,0 +1,52 @@
+<div class="animated fadeInDown" id="navbar" style="box-sizing: border-box;display: block;box-shadow: 0 10px 10px 0 rgba(181,181,181,.7)" >
+<nav class="navbar navbar-expand-lg animated fadeInDown " style=" list-style-type: none;width: 100%;height: 40px;background-color: hsl(0, 85%, 38%);">
+
+  
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" style="padding-left: 1100px; float: right;" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+         
+        <div class="btn-group mr-3 " *ngIf="!isLoggedIn">
+          <button type="button" class="btn btn-primary"><b>User Details</b></button>
+          <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+            <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
+            <div class="dropdown-menu" ngbDropdownMenu>
+              <!--<button routerLink='/profile' class="dropdown-item">Profile</button>-->
+              <!--<button  routerLink='/dashboard' class="dropdown-item">My Dashboard</button> -->
+              <button routerLink='/' class="dropdown-item" (click)="LogOut()">LogOut</button>
+            </div>
+          </div>
+        </div>
+        
+        <li class="nav-item active">
+            <!-- <a class="nav-link" href="#"><b>Cart</b></a> -->
+            <button type="button" routerLink='/mycart' class="btn btn-primary">
+              <b>Cart </b> <span class="badge badge-light">{{cartItemCount}}</span>
+              <span class="sr-only">unread messages</span>
+            </button>
+          </li>
+          <li class="nav-item active">
+            <a routerLink='/admin' class="nav-link" href="#"><b>Admin</b></a>
+          </li>
+      </ul>
+  
+    </div>
+  </nav>
+  <form class="form-inline my-0 my-lg-0" style="margin-left: 20px">
+    <a class="navbar-brand" routerLink='/productdisplay'>
+      <img src="./assets/images/eco.png" style="height: 80px;float: left"></a>
+        <input class="form-control mr-lg-2" style="width: 400px;"  type="search" placeholder="Search for product, brand and more" aria-label="Search">
+      
+           <a class="nav-item active" routerLink='/home' href="#"  style="background-color: #B9154A;
+        padding: 9px 20px;font-size: 12px;font-family: pnpFontBook, CachetStd-Book;
+        vertical-align: middle;margin-left: 800px;margin-bottom: 100px; height: 30px;color: white;float: right;margin-top: 10px;
+        "><img data-dojo-attach-point="arrowPngImg" alt="" src="./assets/images/Arrow.png" style="height: 15px;"> &nbsp;&nbsp;GO TO THE ONLINE SHOP
+        </a>
+       
+       
+  </form>
+ 
+</div>
