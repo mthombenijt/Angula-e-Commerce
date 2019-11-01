@@ -108,7 +108,7 @@ export class UpdateComponent implements OnInit {
               }
               //console.log(this.cartItemCount);
               this.cartItemCount=this.productAddedTocart.length;
-              // this.cartEvent.emit(this.cartItemCount);
+              this.cartEvent.emit(this.cartItemCount);
               this.sharedService.updateCartCount(this.cartItemCount);
             }
             public closeAlert(alert:any) {
