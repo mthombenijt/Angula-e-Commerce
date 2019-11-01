@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Product } from '../Models/Product.Model';
 import { ProductService } from '../Services/product.service';
@@ -25,6 +25,8 @@ export class MycartComponent implements OnInit {
   orderDetail:OrderDetail;
   orderItem:OrderItem[];
   cart:number;
+  cartItemCount: number = 0;
+  @Output() cartEvent = new EventEmitter<number>();
 
   public globalResponse: any;
   public alerts: Array<IAlert> = [];
@@ -179,14 +181,17 @@ export class MycartComponent implements OnInit {
   removeItemFromCart(product: Product)
   {
     this.productService.removeProduct(product);
-    
+    //this.cartItemCount=this.productAddedTocart.length;
+    //this.cartEvent.emit(this.cartItemCount);
     this.getCartProduct();
     
 }
 
 getCartProduct() {
-  this.countProduct(this.cart);
+ 
   this.productAddedTocart = this.productService.getLocalCartProducts();
+  this.cartItemCount=this.productAddedTocart.length;
+  //this.cartEvent.emit(this.cartItemCount);
 }
 
 
