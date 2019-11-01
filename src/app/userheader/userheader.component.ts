@@ -40,7 +40,7 @@ export class UserheaderComponent implements OnInit {
   ngOnInit()
   {
     
-    this.cartItemCount = this.cartItemCount++;
+   
     this.sharedService.currentMessage.subscribe(msg => this.cartItemCount = msg);
     this.registrationForm = this.fb.group({
       UserName:  ['', Validators.compose([Validators.required, Validators.minLength(3),Validators.maxLength(50)])],
@@ -165,9 +165,7 @@ export class UserheaderComponent implements OnInit {
     this.authService.removeToken();
   }
 
-  updateCart(num: number){
-    this.sharedService.updateCartCount(num);
-  }
+ 
  
 
 }
