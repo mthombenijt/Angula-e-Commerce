@@ -36,10 +36,16 @@ export class UpdateComponent implements OnInit {
   allProducts: ProductDisplay[];
   productAddedTocart:Product[];
   products: Product[];
+  cartCount :any;
 
-  constructor(@Inject(DOCUMENT) _document,private productService:ProductService,private sharedService:SharedService,private router:Router,) { }
-
+  constructor(@Inject(DOCUMENT) _document,private productService:ProductService,private sharedService:SharedService,private router:Router,) { 
+          
+         
+  }
+ 
   ngOnInit() {
+
+    //this.cartCount = this.UpdateService.UpdateCount(this.productAddedTocart.length);
     this.productService.getAllProducts()
             .subscribe((result) => {
               this.globalResponse = result;              
@@ -107,8 +113,8 @@ export class UpdateComponent implements OnInit {
                 
               }
               //console.log(this.cartItemCount);
-              this.cartItemCount=this.productAddedTocart.length;
-              this.cartEvent.emit(this.cartItemCount);
+              //this.cartItemCount=this.productAddedTocart.length;
+              //this.cartEvent.emit(this.cartItemCount);
               this.sharedService.updateCartCount(this.cartItemCount);
             }
             public closeAlert(alert:any) {
@@ -132,6 +138,8 @@ export class UpdateComponent implements OnInit {
             localStorage.setItem('editproductId', product.Id.toString());
             this.router.navigate(['edit']);
           };
+
+          
         
           @HostListener('window:scroll', ['$event'])
           onWindowScroll(_e: any) {
@@ -143,6 +151,8 @@ export class UpdateComponent implements OnInit {
                 element.classList.remove('sticky'); 
              }
           }
+
+          
           
      
 
